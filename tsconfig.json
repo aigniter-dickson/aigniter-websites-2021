@@ -33,6 +33,7 @@
     "isolatedModules": true,
     //
     "baseUrl": ".",
+    "rootDirs": ["src"],
     "paths": {
       "@/*": ["src/*"]
     }
