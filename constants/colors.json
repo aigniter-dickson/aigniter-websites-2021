@@ -1,7 +1,8 @@
 {
   "brand": {
     "default": {
-      "primary": "#2b80ab"
+      "primary": "#2b80ab",
+      "primaryDarker": "#0e3a63"
     }
   }
 }
