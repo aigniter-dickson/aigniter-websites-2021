@@ -1,6 +1,6 @@
 {
-  "name": "next-js-boilerplate",
-  "version": "1.0.0",
+  "name": "aigniter-websites-2021",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next --port 8080",
     "generate:svgr": "svgr --typescript --filename-case camel --ignore-existing --out-dir src/assets/images public/assets/images",
