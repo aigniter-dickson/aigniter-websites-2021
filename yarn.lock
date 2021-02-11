@@ -497,6 +497,11 @@
     deepmerge "^4.2.2"
     svgo "^1.2.2"
 
+"@twind/aspect-ratio@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@twind/aspect-ratio/-/aspect-ratio-0.1.1.tgz#e37670c14922a4e1721097ddd74fd5dbfaae6e37"
+  integrity sha512-QAVWrwhq5keqKGrWB5o657aU4UDm+KzQZQx9XSmjoVFiwq3EGp4SOyUVHYIlSm3Ds7Uek5EQFwMa9Lu9ZxDdBg==
+
 "@twind/typography@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@twind/typography/-/typography-0.0.1.tgz#4aa442125cc8d82b1b357450377d234e7dfeb504"
