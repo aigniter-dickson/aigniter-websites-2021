@@ -1,3 +1,4 @@
+import { aspectRatio } from '@twind/aspect-ratio'
 import typography from '@twind/typography'
 import { setup, strict } from 'twind'
 import type * as Twind from 'twind'
@@ -21,6 +22,7 @@ export const tailwindConfig: Twind.Configuration = {
   // },
   plugins: {
     ...typography(),
+    aspect: aspectRatio,
   },
 }
 
