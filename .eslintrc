@@ -17,7 +17,8 @@
       "warn",
       "single",
       {
-        "avoidEscape": true
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
       }
     ],
     "semi": [
@@ -118,5 +119,14 @@
       }
     ],
     "no-underscore-dangle": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/assets/images/**/*.{js,ts,jsx,tsx}"], // Or *.test.js
+      "rules": {
+        "@typescript-eslint/naming-convention": "off",
+        "react/jsx-props-no-spreading": "off"
+      }
+    }
+  ]
 }
