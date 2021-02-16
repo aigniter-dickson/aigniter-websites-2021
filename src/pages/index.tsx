@@ -1,13 +1,16 @@
 import React from 'react'
 
+import Image from 'next/image'
 import { tw } from 'twind'
 import { css, theme } from 'twind/css'
 
+import { JarvixInline } from '@/assets/images'
+import { JarvixpayLogotypeInline } from '@/assets/images/logo'
 import { Meta } from '@/layout/Meta'
 import { Main } from '@/templates/Main'
 
 const _section = tw`relative flex justify-center w-screen`
-const _sectionBody = tw`relative grid gap-8 px-8 py-24 w-full max-w-screen-lg place-items-center`
+const _sectionBody = tw`relative grid w-full max-w-screen-lg gap-8 px-8 py-24 place-items-center`
 const _input = tw(
   `rounded-lg shadow-sm`,
   `py-2 px-4`,
@@ -38,24 +41,23 @@ const Index = () => (
       )}
     >
       <div className={tw`absolute inset-0`}>
-        <img
+        <Image
           src="/assets/images/bg_1.png"
-          className={tw`object-cover h-full w-full`}
+          className={tw`object-cover`}
+          layout="fill"
           alt=""
           aria-hidden
         />
       </div>
       <div className={tw`absolute inset-0 bg-blueGray-700 opacity-90`} />
       <div className={tw`${_sectionBody}`}>
-        <hgroup className={tw`grid gap-4 w-full`}>
-          <img
-            src="/assets/images/jarvix-inline.svg"
-            className={tw`h-12`}
+        <hgroup className={tw`grid w-full gap-4`}>
+          <JarvixInline
+            className={tw`w-auto h-12`}
             style={{ filter: 'invert(1)' }}
-            alt=""
             aria-hidden
           />
-          <h1 className={tw`text-5xl leading-tight font-semibold`}>
+          <h1 className={tw`text-5xl font-semibold leading-tight`}>
             做生意，從此變得更輕鬆
           </h1>
           <h4 className={tw`text-2xl`}>零售及服務門店首選科技平台</h4>
@@ -73,7 +75,7 @@ const Index = () => (
       />
       <div className={tw`absolute inset-0 bg-white opacity-95`} />
       <div className={tw`${_sectionBody}`}>
-        <h2 className={tw`text-3xl font-semibold text-center leading-tight`}>
+        <h2 className={tw`text-3xl font-semibold leading-tight text-center`}>
           集團簡介 - “讓做生意變得更輕鬆”
         </h2>
 
@@ -101,7 +103,7 @@ const Index = () => (
       >
         {[...Array(3)].map((_, i) => (
           <div className={tw`grid gap-2`} key={+i}>
-            <hr className={tw`border-none h-3 bg-blueGray-400 w-20`} />
+            <hr className={tw`w-20 h-3 border-none bg-blueGray-400`} />
             <h2
               className={tw`text-5xl font-extrabold text-brand-default-primary`}
             >
@@ -143,7 +145,7 @@ const Index = () => (
     <section className={tw(_section)}>
       <div className={tw`${_sectionBody} override:(gap-20)`}>
         <h2
-          className={tw`text-3xl font-semibold text-center leading-tight text-brand-default-primaryDarker`}
+          className={tw`text-3xl font-semibold leading-tight text-center text-brand-default-primaryDarker`}
         >
           Jarvix智能商業及支付平台
         </h2>
@@ -158,9 +160,10 @@ const Index = () => (
               key={+i}
             >
               <div className={tw`relative bg-violet-100 w-full aspect(3/2)`}>
-                <img
+                <Image
                   src="/assets/images/64d8bb25-ea2b-44b4-b5ed-3838840e6b10ng.png"
                   className={tw`object-cover`}
+                  layout="fill"
                   alt=""
                   aria-hidden
                 />
@@ -171,12 +174,10 @@ const Index = () => (
                 <h4
                   className={tw`text-xl font-medium leading-none text-violet-600`}
                 >
-                  <img
-                    src="/assets/images/logo/jarvixpay-logotype-inline.svg"
+                  <JarvixpayLogotypeInline
                     className={tw`object-cover w-auto ${css({
                       height: '1.375em',
                     })}`}
-                    alt=""
                     aria-hidden
                   />
                   {/* Jarvix Pay */}
@@ -187,7 +188,7 @@ const Index = () => (
           ))}
         </div>
         <button
-          className={tw`rounded-full bg-brand-default-primaryDarker text-white font-semibold py-4 px-16`}
+          className={tw`px-16 py-4 font-semibold text-white rounded-full bg-brand-default-primaryDarker`}
           type="button"
         >
           立即加入我們
@@ -203,11 +204,11 @@ const Index = () => (
     >
       <div className={tw`${_sectionBody} override:(gap-20)`}>
         <h2
-          className={tw`text-3xl font-semibold text-center leading-tight text-brand-default-primaryDarker`}
+          className={tw`text-3xl font-semibold leading-tight text-center text-brand-default-primaryDarker`}
         >
           合作商戶
         </h2>
-        <div className={tw`grid(& cols(xs:2 md:4)) gap(16) place-items-center`}>
+        <div className={tw`grid(& cols(xs:2 md:4)) gap(16) w-full`}>
           {[
             'logo-cyberport',
             'logo-hkstp',
@@ -218,17 +219,14 @@ const Index = () => (
           ]
             .map((f) => `/assets/images/acknowledgements/${f}.png`)
             .map((src) => (
-              <img
-                className={tw(
-                  'w-full h-full object-contain',
-                  css({
-                    maxWidth: theme('spacing.48'),
-                    maxHeight: theme('spacing.16'),
-                  }),
-                )}
+              // <img
+              <Image
                 src={src}
                 key={src}
-                width="100"
+                layout="responsive"
+                objectFit="contain"
+                width={12 * 16}
+                height={4 * 16}
                 alt=""
                 aria-hidden
               />
@@ -240,7 +238,7 @@ const Index = () => (
     <section className={tw(_section)}>
       <div className={tw`${_sectionBody} override:(gap-20)`}>
         <h2
-          className={tw`text-3xl font-semibold text-center leading-tight text-brand-default-primaryDarker`}
+          className={tw`text-3xl font-semibold leading-tight text-center text-brand-default-primaryDarker`}
         >
           聯絡我們
         </h2>
