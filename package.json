@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "next --port 8080",
-    "generate:svgr": "svgr --typescript --filename-case camel --ignore-existing --out-dir src/assets/images public/assets/images",
-    "generate:svgr:overwrite": "svgr --typescript --filename-case camel --out-dir src/assets/images public/assets/images",
+    "generate:svgr": "svgr --typescript --ignore-existing --out-dir src/assets/images public/assets/images",
+    "generate:svgr:overwrite": "svgr --typescript --out-dir src/assets/images public/assets/images",
     "build": "next build",
     "start": "next start",
     "build-stats": "ANALYZE=true npm run build",
