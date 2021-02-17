@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ChakraProvider } from '@chakra-ui/react'
-import { AppProps } from 'next/app'
+import type { AppProps /* , AppContext */ } from 'next/app'
 
 import { setup } from '@/utils/twind'
 
