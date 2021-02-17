@@ -7,7 +7,7 @@ import { setup } from '@/utils/twind'
 
 import '../styles/main.css'
 
-import theme from '../../theme'
+import theme from '../theme'
 
 setup() // setup twind
 
