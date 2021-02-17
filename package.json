@@ -6,6 +6,8 @@
     "@sites": "run-s \"@:site:* {@}\" --",
     "postinstall": "yarn lerna:init",
     "typecheck": "lerna run typecheck",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
     "lerna:init": "lerna bootstrap --ignore-scripts && lerna link --force-local"
   },
   "devDependencies": {
