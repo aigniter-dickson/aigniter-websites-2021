@@ -3,12 +3,18 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const baseUrl = ''
+const i18n = {
+  locales: ['en', 'zh-hk'],
+  defaultLocale: 'zh-hk',
+}
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
-  trailingSlash: true,
+  trailingSlash: false,
+  cleanUrls: true,
   basePath: baseUrl,
   env: {
     baseUrl: baseUrl,
   },
+  // i18n,
 })
