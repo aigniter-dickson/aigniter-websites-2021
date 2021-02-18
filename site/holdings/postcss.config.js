@@ -5,6 +5,18 @@ module.exports = {
   plugins: {
     // https://github.com/tw-in-js/twind
     // tailwindcss: {},
-    autoprefixer: {},
+    ...(process.env.NODE_ENV === 'production' && {
+      'postcss-flexbugs-fixes': {},
+      'postcss-preset-env': {
+        autoprefixer: {
+          flexbox: 'no-2009',
+        },
+        /* use stage 3 features + css nesting rules */
+        stage: 3,
+        features: {
+          'nesting-rules': true,
+        },
+      },
+    }),
   },
 }
