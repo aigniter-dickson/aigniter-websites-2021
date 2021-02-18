@@ -1,30 +1,30 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/theme'
+import type { ComponentSingleStyleConfig } from '@chakra-ui/theme'
 
 import _sizes from '../foundations/sizes'
 
-const baseStyle = {
-  w: '100%',
-  mx: 'auto',
-  maxW: '60ch',
-  px: '1rem',
-}
+// const baseStyle = {
+//   w: '100%',
+//   mx: 'auto',
+//   maxW: '60ch',
+//   px: '1rem',
+// }
 
 const sizes = {
-  ...Object.entries(_sizes.screen).reduce(
+  ...Object.keys(_sizes.screen).reduce(
     // use screen width as size
-    (acc, [key, val]) => ({
+    (acc, key) => ({
       ...acc,
       [key]: {
-        maxW: val,
+        maxW: `screen.${key}`,
       },
     }),
     {} as Record<string, { maxW: string }>,
   ),
 }
 
-export const Container = {
-  baseStyle,
+export const Container: ComponentSingleStyleConfig = {
+  // baseStyle,
   sizes,
-} as ComponentSingleStyleConfig
+}
 
 export default Container

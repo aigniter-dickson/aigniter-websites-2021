@@ -19,9 +19,9 @@ const config: ThemeConfig = {
 export const overrides = {
   direction,
   ...foundations,
-  components,
-  styles,
-  config,
+  components: { ...components },
+  styles: { ...styles },
+  config: { ...config },
 }
 
 export default extendTheme(overrides)
