@@ -1,5 +1,14 @@
 import React from 'react'
 
+import {
+  Box,
+  Center,
+  Container,
+  SimpleGrid,
+  Text,
+  chakra,
+  Heading,
+} from '@chakra-ui/react'
 import Image from 'next/image'
 import { tw } from 'twind'
 import { css, theme } from 'twind/css'
@@ -25,6 +34,50 @@ const _input = tw(
   `appearance-none`, // reset style
 )
 
+export type SectionProps = {
+  children: React.ReactNode
+  className?: string
+  sectionBackground?: React.ReactNode
+}
+
+export const Section = chakra(
+  ({ children: SectionBody, className, sectionBackground }: SectionProps) => (
+    <Box as="section" position="relative" w="full" {...{ className }}>
+      {
+        // background mask
+      }
+      {sectionBackground && (
+        <Box position="absolute" w="full" h="full" pointerEvents="none">
+          <Box position="relative" w="full" h="full">
+            {sectionBackground}
+          </Box>
+        </Box>
+      )}
+      {
+        // center container with max width
+      }
+      <Center position="relative">
+        <Container position="relative" size="lg">
+          <SimpleGrid spacing={[8]} py={[24]} px={[4]}>
+            {SectionBody}
+          </SimpleGrid>
+        </Container>
+      </Center>
+    </Box>
+  ),
+)
+
+export type TitleGroupProps = {
+  children: React.ReactNode
+  className?: string
+}
+
+export const TitleGroup = chakra(({ children, className }: TitleGroupProps) => (
+  <SimpleGrid as="hgroup" spacing={[4]} {...{ className }}>
+    {children}
+  </SimpleGrid>
+))
+
 const Index = () => (
   <Main
     meta={
@@ -34,69 +87,79 @@ const Index = () => (
       />
     }
   >
-    <section
-      className={tw(
-        _section, //
-        `text-white`,
-      )}
-    >
-      <div className={tw`absolute inset-0`}>
-        <Image
-          src="/assets/images/bg_1.png"
-          className={tw`object-cover`}
-          layout="fill"
-          alt=""
-          aria-hidden
-        />
-      </div>
-      <div className={tw`absolute inset-0 bg-blueGray-700 opacity-90`} />
-      <div className={tw`${_sectionBody}`}>
-        <hgroup className={tw`grid w-full gap-4`}>
-          <JarvixInline
-            className={tw`w-auto h-12`}
-            style={{ filter: 'invert(1)' }}
+    <Section
+      sectionBackground={
+        <>
+          <Image
+            src="/assets/images/bg_1.png"
+            layout="fill"
+            objectFit="cover"
+            alt=""
             aria-hidden
           />
-          <h1 className={tw`text-5xl font-semibold leading-tight`}>
-            做生意，從此變得更輕鬆
-          </h1>
-          <h4 className={tw`text-2xl`}>零售及服務門店首選科技平台</h4>
-        </hgroup>
-        <p className={tw`text-base leading-normal`}>
-          Jarvix提供雲端管理及營銷軟件平台、一站式信用咭及電子支付收款APP及互聯網金融服務，協助每位老闆用好數據管理生意、吸引客戶、更快獲取現金流及資本拓展業務。
-        </p>
-      </div>
-    </section>
+          <Box
+            pos="absolute"
+            w="full"
+            h="full"
+            bg="blueGray.700"
+            opacity="0.9"
+          />
+        </>
+      }
+      color="white"
+    >
+      <TitleGroup>
+        <JarvixInline
+          className={tw`w-auto h-12`}
+          style={{ filter: 'invert(1)' }}
+          aria-hidden
+        />
+        <Heading as="h1" size="heading">
+          <span>做生意，從此變得更輕鬆</span>
+        </Heading>
+        <h4 className={tw`text-2xl`}>零售及服務門店首選科技平台</h4>
+      </TitleGroup>
+      <Text fontSize="md">
+        Jarvix提供雲端管理及營銷軟件平台、一站式信用咭及電子支付收款APP及互聯網金融服務，協助每位老闆用好數據管理生意、吸引客戶、更快獲取現金流及資本拓展業務。
+      </Text>
+    </Section>
 
-    <section className={tw(_section)}>
-      <div
-        className={tw`absolute inset-0 bg-cover`}
-        style={{ backgroundImage: 'url("/assets/images/bg_1.png")' }}
-      />
-      <div className={tw`absolute inset-0 bg-white opacity-95`} />
-      <div className={tw`${_sectionBody}`}>
+    <Section
+      sectionBackground={
+        <>
+          <Image
+            src="/assets/images/bg_1.png"
+            className={tw`object-cover`}
+            layout="fill"
+            alt=""
+            aria-hidden
+          />
+          <Box pos="absolute" w="full" h="full" bg="white" opacity="0.95" />
+        </>
+      }
+    >
+      <TitleGroup>
         <h2 className={tw`text-3xl font-semibold leading-tight text-center`}>
           集團簡介 - “讓做生意變得更輕鬆”
         </h2>
+      </TitleGroup>
 
-        <div className={tw`grid gap-4`}>
-          <p className={tw`text-base leading-normal`}>
-            盈利達控股是一間植根香港的國際化數據及金融科技公司，為包括中國內地、香港、馬來西亞及泰國等多個亞洲國家及地區的企業、金融機構及政府機關提供以數據科技驅動的產品及服務，讓做生意變得更輕鬆。
-          </p>
-          <p className={tw`text-base leading-normal`}>
-            集團於2016年在香港數碼港的支持下推出包括Jarvix.ai、Jarvix
-            Pay及CERTOM等多項互聯網、數據科技及金融科技產品，廣獲中小企業支持，後獲多個知名科技投資基金支持，以數據科技為超過100億的交易提供智慧營銷、電子支付、互聯網金融等科技服務，持續以創新科技推動「讓做生意變得更輕鬆」的願景。
-          </p>
-        </div>
-        <hr className={tw`border(t-8 blueGray-700) w-2/3 mx-auto`} />
-      </div>
-    </section>
+      <Text fontSize="md">
+        盈利達控股是一間植根香港的國際化數據及金融科技公司，為包括中國內地、香港、馬來西亞及泰國等多個亞洲國家及地區的企業、金融機構及政府機關提供以數據科技驅動的產品及服務，讓做生意變得更輕鬆。
+        <br />
+        <br />
+        集團於2016年在香港數碼港的支持下推出包括Jarvix.ai、Jarvix
+        Pay及CERTOM等多項互聯網、數據科技及金融科技產品，廣獲中小企業支持，後獲多個知名科技投資基金支持，以數據科技為超過100億的交易提供智慧營銷、電子支付、互聯網金融等科技服務，持續以創新科技推動「讓做生意變得更輕鬆」的願景。
+      </Text>
 
-    <section
-      className={tw(
-        _section, //
-        `bg-brand-default-primary bg-opacity-10`,
-      )}
+      <hr className={tw`border(t-8 blueGray-700) w-2/3 mx-auto`} />
+    </Section>
+
+    <Section
+      sectionBackground={
+        <Box w="full" h="full" bg="coolGray.500" opacity="0.1" />
+      }
+      className={tw(`bg-brand-default-primary bg-opacity-10`)}
     >
       <div
         className={tw`${_sectionBody} override:(grid(md:(cols-3)) gap(12 md:(8)))`}
@@ -113,14 +176,9 @@ const Index = () => (
           </div>
         ))}
       </div>
-    </section>
+    </Section>
 
-    <section
-      className={tw(
-        _section, //
-        `bg-blueGray-50`,
-      )}
-    >
+    <Section className={tw(`bg-blueGray-50`)}>
       <div
         className={tw`${_sectionBody} override:(grid(md:(cols-3)) gap(12 md:(8)))`}
       >
@@ -140,7 +198,7 @@ const Index = () => (
           </div>
         ))}
       </div>
-    </section>
+    </Section>
 
     <section className={tw(_section)}>
       <div className={tw`${_sectionBody} override:(gap-20)`}>
