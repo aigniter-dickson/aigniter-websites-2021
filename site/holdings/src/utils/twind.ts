@@ -2,13 +2,31 @@ import { aspectRatio } from '@twind/aspect-ratio'
 import typography from '@twind/typography'
 import { setup, strict } from 'twind'
 import type * as Twind from 'twind'
+import * as tailwindColors from 'twind/colors'
+
+import { colors } from '@/constants'
 
 // import * as colors from 'twind/colors'
 
-const originalConfig = require('../../tailwind.config.js')
-
 export const tailwindConfig: Twind.Configuration = {
-  ...originalConfig,
+  darkMode: false,
+  theme: {
+    colors: {
+      ...tailwindColors,
+      ...colors,
+    },
+    extend: {
+      screens: {
+        xs: '384px',
+      },
+      colors: {
+        ...tailwindColors,
+        ...colors,
+      },
+    },
+  },
+  variants: {},
+
   // theme: {
   //   // colors,
   //   extend: {
@@ -29,9 +47,9 @@ export const tailwindConfig: Twind.Configuration = {
 function _setup() {
   setup({
     ...tailwindConfig,
-    ...(process.env.NODE_ENV === 'development' && {
-      mode: strict,
-    }),
+    // ...(process.env.NODE_ENV === 'development' && {
+    //   mode: strict,
+    // }),
   })
 }
 
