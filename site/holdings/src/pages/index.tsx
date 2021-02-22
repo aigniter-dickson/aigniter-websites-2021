@@ -9,13 +9,16 @@ import {
   chakra,
   Heading,
 } from '@chakra-ui/react'
+import { parseJson, getGithubFile } from 'next-tinacms-github'
 import Image from 'next/image'
-import { FormOptions, useForm, usePlugin } from 'tinacms'
+import { useGithubJsonForm } from 'react-tinacms-github'
+import { usePlugin } from 'tinacms'
 import { tw } from 'twind'
 import { css, theme } from 'twind/css'
 
 import { JarvixInline } from '@/assets/images'
 import { JarvixpayLogotypeInline } from '@/assets/images/logo'
+import EditButton from '@/components/cms/edit-button'
 import { Meta } from '@/layout/Meta'
 import { Main } from '@/templates/Main'
 
@@ -79,45 +82,38 @@ export const TitleGroup = chakra(({ children, className }: TitleGroupProps) => (
   </SimpleGrid>
 ))
 
-const Index = () => {
+export const IndexFormOptions = {
+  id: 'tina-tutorial-index',
+  fields: [
+    {
+      name: 'title',
+      label: 'Title',
+      component: 'text',
+    },
+    {
+      name: 'subtitle',
+      label: 'Sub-title',
+      component: 'text',
+    },
+    {
+      name: 'body',
+      label: 'Body',
+      component: 'textarea',
+    },
+  ],
+}
+
+export type IndexProps = {
+  preview: boolean
+  file: any
+}
+
+const Index = ({ file }: IndexProps) => {
   // Define the form configuration object
-  const formConfig: FormOptions<{
-    title: string
-    subtitle: string
-    body: string
-  }> = {
-    id: 'tina-tutorial-index',
-    label: 'Edit Page',
-    fields: [
-      {
-        name: 'title',
-        label: 'Title',
-        component: 'text',
-      },
-      {
-        name: 'subtitle',
-        label: 'Sub-title',
-        component: 'text',
-      },
-      {
-        name: 'body',
-        label: 'Body',
-        component: 'textarea',
-      },
-    ],
-    initialValues: {
-      title: '做生意，從此變得更輕鬆',
-      subtitle: '零售及服務門店首選科技平台',
-      body:
-        'Jarvix提供雲端管理及營銷軟件平台、一站式信用咭及電子支付收款APP及互聯網金融服務，協助每位老闆用好數據管理生意、吸引客戶、更快獲取現金流及資本拓展業務。',
-    },
-    onSubmit: async () => {
-      window.alert('Saved!')
-    },
-  }
 
   // 3. Create the form
-  const [editableData, form] = useForm(formConfig)
+  // const [formData, form] = useForm(formConfig)
+  const [formData, form] = useGithubJsonForm(file, IndexFormOptions)
 
   // 4. Register it with the CMS
   usePlugin(form)
@@ -159,14 +155,14 @@ const Index = () => {
             aria-hidden
           />
           <Heading as="h1" size="heading">
-            <span>{editableData.title}</span>
+            <span>{formData.title}</span>
           </Heading>
           <h4 className={tw`text-2xl`}>
-            <span>{editableData.subtitle}</span>
+            <span>{formData.subtitle}</span>
           </h4>
         </TitleGroup>
         <Text fontSize="md">
-          <span>{editableData.body}</span>
+          <span>{formData.body}</span>
         </Text>
       </Section>
 
@@ -349,7 +345,7 @@ const Index = () => {
           <div
             className={tw`
             grid(
-              & 
+              &
               cols(xs:2)
             )
             gap(12 md:8)
@@ -405,13 +401,46 @@ const Index = () => {
         </div>
       </section>
 
-      <section
-        className={tw(_section, `bg-brand-default-primaryDarker text-white`)}
-      >
+      <section className={tw(_section, `bg-darkBlue text-white`)}>
         <div className={tw(_sectionBody)}>footer</div>
       </section>
+      <EditButton />
     </Main>
   )
 }
 
 export default Index
+
+/**
+ * Fetch data with getStaticProps based on 'preview' mode
+ */
+export const getStaticProps: import('next').GetStaticProps<IndexProps> = async ({
+  preview,
+  previewData: { github_access_token, working_repo_full_name, head_branch } = {},
+}) => {
+  if (preview) {
+    return {
+      props: {
+        preview: true,
+        file: getGithubFile({
+          fileRelativePath: 'content/home.json',
+          github_access_token,
+          working_repo_full_name,
+          head_branch,
+          parse: parseJson,
+        }),
+      },
+    }
+  }
+  return {
+    props: {
+      sourceProvider: null,
+      error: null,
+      preview: false,
+      file: {
+        fileRelativePath: 'content/home.json',
+        data: (await import('@/content/pages/index.json')).default,
+      },
+    },
+  }
+}

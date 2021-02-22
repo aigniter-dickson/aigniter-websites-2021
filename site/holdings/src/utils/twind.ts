@@ -1,6 +1,6 @@
 import { aspectRatio } from '@twind/aspect-ratio'
 import typography from '@twind/typography'
-import { setup, strict } from 'twind'
+import { setup } from 'twind'
 import type * as Twind from 'twind'
 import * as tailwindColors from 'twind/colors'
 

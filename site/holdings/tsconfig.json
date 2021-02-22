@@ -7,6 +7,7 @@
     "baseUrl": ".",
     "rootDirs": [".", "src"],
     "paths": {
+      "@/content/*": ["content/*"],
       "@/*": ["src/*"]
     }
   },
@@ -14,7 +15,8 @@
   "include": [
     "./**/*.ts",
     "./**/*.tsx",
-    "next-env.d.ts",
+    "./**/*.d.ts",
+    "./content/**/*.json",
     "./constants/colors.json"
   ]
 }
