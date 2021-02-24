@@ -69,6 +69,9 @@ module.exports = {
         },
       },
     ],
+    'import/extensions': 'off',
+    'import/no-cycle':
+      process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'import/prefer-default-export': 'off',
     '@typescript-eslint/naming-convention': [
       'warn',
