@@ -1,0 +1,38 @@
+{
+  "name": "@aigniter-design/tokens",
+  "version": "3.0.0",
+  "description": "Typography, spacing, and color primitives for Primer design system",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "primitives/*.js",
+    "primitives/*.d.ts",
+    "theme/*.js",
+    "theme/*.d.ts"
+  ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "https://github.com/primer/primitives",
+  "keywords": [
+    "primitives",
+    "colors",
+    "spacing",
+    "typography",
+    "variables",
+    "design-system"
+  ],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primer/primitives/issues"
+  },
+  "homepage": "https://github.com/primer/primitives#readme",
+  "scripts": {
+    "build": "tsc",
+    "prepack": "yarn build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "*"
+  }
+}

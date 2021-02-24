@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
+  },
+  "target": "es2019",
+  "module": "commonjs",
+  "moduleResolution": "node",
+  "esModuleInterop": true,
+  "strict": true,
+  "rootDir": ".",
+  "outDir": ".",
+  "declaration": true /* Generates corresponding '.d.ts' file. */,
+  "declarationMap": false /* Generates a sourcemap for each corresponding '.d.ts' file. */,
+  "sourceMap": false /* Generates corresponding '.map' file. */,
+  "exclude": [
+    "../../node_modules",
+    "node_modules"
+  ],
+  "include": [
+    "./**/*.ts",
+  ]
+}

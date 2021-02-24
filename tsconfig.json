@@ -8,6 +8,9 @@
   "references": [
     {
       "path": "./site/holdings"
+    },
+    {
+      "path": "./design/tokens"
     }
   ]
 }
