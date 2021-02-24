@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -8,6 +9,9 @@ module.exports = {
     ecmaVersion: 2019,
     sourceType: 'module',
     createDefaultProgram: true,
+    tsconfigRootDir: __dirname,
+    warnOnUnsupportedTypeScriptVersion: false,
+    EXPERIMENTAL_useSourceOfProjectReferenceRedirect: true,
   },
   plugins: ['@typescript-eslint'],
   extends: [
