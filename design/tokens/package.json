@@ -29,7 +29,10 @@
   "homepage": "https://github.com/primer/primitives#readme",
   "scripts": {
     "build": "tsc",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "format": "prettier --write \"./**/*.{ts}\" --ignore-path ../../.prettierignore",
+    "lint": "eslint . --ignore-path ../../.eslintignore --ext .ts",
+    "lint:fix": "eslint --fix . --ignore-path ../../.eslintignore --ext ts"
   },
   "dependencies": {},
   "devDependencies": {
