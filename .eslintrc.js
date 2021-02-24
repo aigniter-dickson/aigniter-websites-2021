@@ -73,38 +73,11 @@ module.exports = {
     'import/no-cycle':
       process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'import/prefer-default-export': 'off',
-    '@typescript-eslint/naming-convention': [
-      'warn',
-      {
-        selector: 'default',
-        format: ['camelCase'],
-        leadingUnderscore: 'allow',
-        trailingUnderscore: 'allow',
-      },
-      {
-        selector: 'variable',
-        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-        leadingUnderscore: 'allow',
-        trailingUnderscore: 'allow',
-      },
-      {
-        selector: 'parameter',
-        format: ['camelCase', 'PascalCase'],
-        leadingUnderscore: 'allowSingleOrDouble',
-      },
-      {
-        selector: 'typeLike',
-        format: ['PascalCase'],
-      },
-      {
-        selector: 'objectLiteralProperty',
-        format: ['camelCase', 'snake_case', 'UPPER_CASE'],
-      },
-    ],
+    '@typescript-eslint/naming-convention':'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        argsIgnorePattern: '^_',
+        // argsIgnorePattern: '^_',
       },
     ],
     'no-underscore-dangle': 'off',
