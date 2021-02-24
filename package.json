@@ -2,7 +2,7 @@
   "name": "aigniter-websites-2021",
   "version": "0.0.1",
   "scripts": {
-    "@site:holdings": "yarn workspace @aigniter/website-holdings",
+    "@site:holdings": "yarn workspace @aigniter-site/holdings",
     "@sites": "run-s \"@site:* {@}\" --",
     "postinstall": "yarn lerna:init",
     "typecheck": "lerna run typecheck",

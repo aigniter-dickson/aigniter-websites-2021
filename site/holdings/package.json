@@ -1,5 +1,5 @@
 {
-  "name": "@aigniter/website-holdings",
+  "name": "@aigniter-site/holdings",
   "version": "0.0.1",
   "scripts": {
     "dev": "next --port 8080",
