@@ -4,6 +4,8 @@
   "scripts": {
     "@site:holdings": "yarn workspace @aigniter-site/holdings",
     "@sites": "run-s \"@site:* {@}\" --",
+    "@add": "lerna add",
+    "@add:help": "echo '\nyarn @add @aigniter-design/tokens --scope=@aigniter-site/*\nyarn @add @aigniter-design/tokens site/*\n' > /dev/null",
     "postinstall": "yarn lerna:init",
     "typecheck": "lerna run typecheck",
     "lint": "lerna run lint",
