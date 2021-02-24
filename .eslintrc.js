@@ -98,6 +98,11 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off',
   },
+  settings: {
+    react: {
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
+  },
   env: {
     browser: true,
     es6: true,
