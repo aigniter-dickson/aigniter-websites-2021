@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/*"
+    "sites/*"
   ],
   "version": "1.0.3",
   "npmClient": "yarn",
