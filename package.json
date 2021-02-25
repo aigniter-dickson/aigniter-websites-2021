@@ -50,7 +50,7 @@
   "license": "ISC",
   "private": "true",
   "workspaces": [
-    "site/*",
+    "site/holdings",
     "design/*"
   ]
 }
