@@ -1,5 +1,5 @@
 {
-  "name": "blitz-without-db-template",
+  "name": "@aigniter-site/jarvix",
   "version": "0.30.4",
   "scripts": {
     "dev": "blitz dev",
