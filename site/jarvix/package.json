@@ -1,6 +1,7 @@
 {
   "name": "@aigniter-site/jarvix",
   "version": "0.30.4",
+  "private": true,
   "scripts": {
     "dev": "blitz dev",
     "dev:watch:tsc": "tsc --watch --noEmit",
@@ -12,9 +13,6 @@
     "test": "echo \"No tests yet\"",
     "postinstall": "yarn run gen:theme-typings"
   },
-  "browserslist": [
-    "defaults"
-  ],
   "husky": {
     "hooks": {
       "pre-commit": "tsc && lint-staged && pretty-quick --staged",
@@ -26,6 +24,15 @@
       "eslint --fix"
     ]
   },
+  "browserslist": [
+    "defaults"
+  ],
+  "resolutions": {
+    "@blitzjs/server": "^0.30.4",
+    "blitz": "^0.30.4",
+    "react": "next",
+    "react-dom": "next"
+  },
   "dependencies": {
     "@chakra-ui/react": "^1.3.3",
     "@chakra-ui/theme": "^1.6.2",
@@ -35,8 +42,8 @@
     "blitz": "^0.30.4",
     "final-form": "4.20.1",
     "framer-motion": "3.7.0",
-    "react": "0.0.0-experimental-3310209d0",
-    "react-dom": "0.0.0-experimental-3310209d0",
+    "react": "next",
+    "react-dom": "next",
     "react-error-boundary": "3.1.0",
     "react-final-form": "6.5.2",
     "secure-password": "4.0.0",
@@ -60,14 +67,10 @@
     "lint-staged": "10.5.3",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
+    "sort-package-json": "1.49.0",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
     "@blitzjs/server": "^0.30.4"
-  },
-  "resolutions": {
-    "blitz": "^0.30.4",
-    "@blitzjs/server": "^0.30.4"
-  },
-  "private": true
+  }
 }
