@@ -29,9 +29,7 @@
   ],
   "resolutions": {
     "@blitzjs/server": "^0.30.4",
-    "blitz": "^0.30.4",
-    "react": "next",
-    "react-dom": "next"
+    "blitz": "^0.30.4"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.3.3",
@@ -42,8 +40,8 @@
     "blitz": "^0.30.4",
     "final-form": "4.20.1",
     "framer-motion": "3.7.0",
-    "react": "next",
-    "react-dom": "next",
+    "react": "0.0.0-experimental-3310209d0",
+    "react-dom": "0.0.0-experimental-3310209d0",
     "react-error-boundary": "3.1.0",
     "react-final-form": "6.5.2",
     "secure-password": "4.0.0",
