@@ -1,0 +1,14 @@
+{
+  "editor.tabSize": 2,
+  "eslint.lintTask.enable": true,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.format",
+    "source.fixAll.eslint"
+  ],
+  "eslint.packageManager": "yarn"
+}
