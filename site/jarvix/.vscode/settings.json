@@ -14,5 +14,14 @@
   // typescript export
   "export-typescript.excludes": ["**/test/*.{ts,tsx}"],
   "export-typescript.includes": ["**/*.{ts,tsx}"],
-  "export-typescript.exportStar": true
+  "export-typescript.exportStar": true,
+  // tailwind
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "tsx"
+  },
+  "tailwindCSS.emmetCompletions": true
 }

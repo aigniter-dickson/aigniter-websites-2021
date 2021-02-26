@@ -10,6 +10,7 @@
     "christian-kohler.path-intellisense",
     "spmeesseman.vscode-taskexplorer",
     "steoates.autoimport",
-    "mscolnick.export-typescript"
+    "mscolnick.export-typescript",
+    "bradlc.vscode-tailwindcss"
   ]
 }
