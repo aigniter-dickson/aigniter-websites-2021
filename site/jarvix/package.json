@@ -11,6 +11,7 @@
     "dev:watch:tsc": "tsc --watch --noEmit",
     "gen:theme-typings": "chakra-cli tokens app/theme/index.ts",
     "build": "blitz build",
+    "build:stats": "ANALYZE=true yarn run build",
     "start": "blitz start",
     "lint": "eslint --cache --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --fix --cache --ignore-path .gitignore --ext .js,.ts,.tsx .",
@@ -20,7 +21,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "true || tsc && lint-staged && pretty-quick --staged",
-      "pre-push": "yarn run lint && npm run test"
+      "pre-push": "yarn run lint && yarn run test"
     }
   },
   "lint-staged": {
