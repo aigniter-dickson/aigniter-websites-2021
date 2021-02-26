@@ -1,5 +1,9 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box, chakra } from '@chakra-ui/react'
 
-export const JumppointLogo = () => <Box fontWeight="bold">jumppoint</Box>
+export const JumppointLogo = chakra(() => (
+  <Box fontWeight="bold">
+    <span>{'jumppoint'}</span>
+  </Box>
+))
 
 export default JumppointLogo

@@ -303,7 +303,7 @@ const Index = () => (
         <div
           className={tw`
             grid(
-              & 
+              &
               cols(xs:2)
             )
             gap(12 md:8)

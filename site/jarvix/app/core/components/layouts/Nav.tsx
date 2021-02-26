@@ -9,6 +9,8 @@ import {
   HStack,
   Spacer,
   chakra,
+  ListItem,
+  List,
 } from '@chakra-ui/react'
 import { Link } from 'blitz'
 import React from 'react'
@@ -21,24 +23,30 @@ type _WithChildren = {
 }
 
 // dimensions
-export const h = '12'
+const h = '12'
+
+export const NavDimensions = {
+  h,
+}
 
 export type NavLinkProps = Parameters<typeof NavLink>[0]
 
-// export const NavLink = chakra(
-//   (props: Parameters<typeof Link>[0]) => Link({ ...props, passHref: true }),
-//   {
-//     baseStyle: { h },
-//   },
+export const NavLink = chakra(
+  (props: Parameters<typeof Link>[0]) => Link({ ...props, passHref: true }),
+  {
+    baseStyle: { h },
+  },
+)
+
+// export const NavItem = (props: Parameters<typeof Flex>[0]) => (
+//   <Flex alignItems="stretch" h="full" sx={{ '& a': { display: 'block' } }} {...props}>
+//     {props.children}
+//   </Flex>
 // )
 
-export const NavLink = (props: Parameters<typeof Link>[0]) => (
-  <Link {...props}>
-    <Flex alignItems="stretch" sx={{ '& a': { display: 'block' } }}>
-      {props.children}
-    </Flex>
-  </Link>
-)
+export const NavItem = ListItem
+
+// export const NavLink = chakra(Link)
 
 export type NavProps = _WithChildren & {
   logo?: import('react').ReactNode
@@ -47,31 +55,37 @@ export type NavProps = _WithChildren & {
   }
 }
 
-export const Nav = () => {
-  const NavLayout = ({ children }: _WithChildren) => (
-    <Flex as="nav" alignItems="stretch" justifyContent="space-between" h={h} maxH={h}>
-      {children}
-    </Flex>
-  )
+export const NavLayout = chakra(({ children }: _WithChildren) => (
+  <Flex as="nav" alignItems="stretch" justifyContent="space-between" h={h} maxH={h}>
+    {children}
+  </Flex>
+))
 
-  const NavLogo = () => (
-    <NavLink href="https://google.com">
-      <a>
-        <JumppointLogo />
-      </a>
-    </NavLink>
-  )
+export const Nav = chakra(() => {
+  // const NavLink = Link
+
+  // const NavLogo = () => (
+  //   // <NavItem as="a">
+  //   <Link href="https://google.com" passHref>
+  //     <JumppointLogo />
+  //   </Link>
+  //   // </NavItem>
+  // )
 
   return (
     <Header>
       <NavLayout>
-        <NavLogo />
-        <NavLink href="/">
-          <a>hi</a>
+        <NavLink href="https://google.com" passHref>
+          <JumppointLogo />
         </NavLink>
+        {/* <List>
+          <ListItem>
+            <NavLogo />
+          </ListItem>
+        </List> */}
       </NavLayout>
     </Header>
   )
-}
+})
 
 export default Nav

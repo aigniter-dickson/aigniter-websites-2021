@@ -2,8 +2,10 @@ import {
   //
   extendTheme,
   ThemeConfig,
+  // theme,
 } from '@chakra-ui/react'
 
+import * as components from './components'
 import styles from './styles'
 
 const direction: import('@chakra-ui/react').ThemeDirection = 'ltr'
@@ -14,7 +16,10 @@ const config: ThemeConfig = {
 }
 
 export const overrides = {
+  // ...theme,
   direction,
+  // ...foundations,
+  components: { ...components },
   styles: { ...styles },
   config: { ...config },
 }

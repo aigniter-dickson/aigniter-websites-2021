@@ -10,5 +10,9 @@
     "source.fixAll.format",
     "source.fixAll.eslint"
   ],
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  // typescript export
+  "export-typescript.excludes": ["**/test/*.{ts,tsx}"],
+  "export-typescript.includes": ["**/*.{ts,tsx}"],
+  "export-typescript.exportStar": true
 }
