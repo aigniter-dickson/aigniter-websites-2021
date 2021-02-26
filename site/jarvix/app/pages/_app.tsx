@@ -7,6 +7,11 @@ import { ChakraProvider } from '@chakra-ui/react'
 // # Components
 import { ErrorBoundary } from 'react-error-boundary'
 
+// # postcss stylesheets
+import 'app/core/styles/app-base.css'
+import 'app/core/styles/app-components.css'
+import 'app/core/styles/app-utilities.css'
+
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
