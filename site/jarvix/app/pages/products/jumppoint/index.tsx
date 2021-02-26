@@ -1,13 +1,13 @@
 // # Components
 import Layout from 'app/core/layouts/Layout'
-import { Box, Button, chakra, Heading, HStack, Icon, List, ListItem } from '@chakra-ui/react'
+import { Box, Button, chakra, Flex, Heading, HStack, Icon, List, ListItem } from '@chakra-ui/react'
 import { NavLayout, NavDimensions } from 'app/core/components/layouts/Nav'
 import Header from 'app/core/components/layouts/Header'
 import JumppointLogo from 'app/core/components/JumppointLogo'
 
 import { Link } from '@chakra-ui/react'
 import { Image, Link as NextLink } from 'blitz'
-import { Section, SectionTitleGroup } from 'app/core/components/Section'
+import { Section, SectionBody, SectionTitleGroup } from 'app/core/components/Section'
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -46,10 +46,16 @@ const _Nav = () => (
 )
 const Nav = chakra(_Nav)
 
+const _Section = (p: import('react').PropsWithChildren<{}>) => (
+  <Box as="section" position="relative" w="full">
+    {p.children}
+  </Box>
+)
+
 const Landing: import('blitz').BlitzPage = () => {
   return (
     <>
-      <Box as={Nav} />
+      <Nav />
       <Section
         // mt={-`${NavDimensions.h}`}
         sectionBackground={
@@ -66,11 +72,19 @@ const Landing: import('blitz').BlitzPage = () => {
         }
         color="white"
       >
-        <SectionTitleGroup mt={NavDimensions.h}>
-          <Heading as="h1">
-            <span>hihi</span>
-          </Heading>
-        </SectionTitleGroup>
+        <SectionBody>
+          <SectionTitleGroup mt={NavDimensions.h}>
+            <JumppointLogo />
+            <Heading as="h1" fontSize="4xl">
+              可靠、極速
+              <br /> 全城最抵​嘅物流格價App
+            </Heading>
+            <Flex>
+              <Button variant="outline">立即免費申請</Button>
+            </Flex>
+          </SectionTitleGroup>
+          {/* <Mockup /> */}
+        </SectionBody>
       </Section>
       <Box as="main">main</Box>
       <div>main</div>

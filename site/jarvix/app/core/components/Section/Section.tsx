@@ -24,13 +24,19 @@ export const Section = chakra(
       }
       <Center position="relative">
         <Container maxW="container.lg">
-          <SimpleGrid spacing={[8]} py={[24]} px={[4]}>
-            {SectionBody}
-          </SimpleGrid>
+          {/* <SimpleGrid spacing={[8]} py={[24]} px={[4]}> */}
+          {SectionBody}
+          {/* </SimpleGrid> */}
         </Container>
       </Center>
     </Box>
   ),
 )
+
+export const SectionBody = chakra(({ children }: import('react').PropsWithChildren<{}>) => (
+  <SimpleGrid spacing={[8]} py={[24]} px={[4]}>
+    {children}
+  </SimpleGrid>
+))
 
 export default Section
