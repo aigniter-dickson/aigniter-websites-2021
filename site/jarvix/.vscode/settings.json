@@ -1,0 +1,27 @@
+{
+  "editor.formatOnPaste": false,
+  // tailwind / twin.macro
+  // https://github.com/ben-rogerson/twin.macro/discussions/227
+  "css.validate": false,
+  "scss.validate": false,
+  "tailwindCSS.emmetCompletions": false,
+  "tailwindCSS.includeLanguages": {
+    "plaintext": "javascript",
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "[typescriptreact]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.autoClosingQuotes": "always",
+    "tailwindCSS.experimental.classRegex": [
+      "tw`([^`]*)", // tw`...`
+      "tw=\"([^\"]*)", // <div tw="..." />
+      // "tw={\"([^\"}]*)", // <div tw={"..."} />
+      "tw={[\\[\"'`]+([^\\]\"'`}]*)", //<div tw={"..."} /> <div tw={'...'} /> <div tw={`...`} /> <div tw={[`sdasdad`} /> <div tw={['sdasdad'} />
+      "tw\\.\\w+`([^`]*)", // tw.xxx`...`
+      "tw\\(.*?\\)`([^`]*)" // tw(Component)`...`
+    ]
+  },
+}

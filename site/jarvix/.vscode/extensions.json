@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "ricard.postcss",
+    "steoates.autoimport",
+    "formulahendry.auto-rename-tag",
+    "alefragnani.bookmarks",
+    "msjsdiag.debugger-for-chrome",
+    "firefox-devtools.vscode-firefox-debug",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "drknoxy.eslint-disable-snippets",
+    "mscolnick.export-typescript",
+    "mhutchie.git-graph",
+    "vincaslt.highlight-matching-tag",
+    "herrmannplatz.npm-dependency-links",
+    "ryu1kn.partial-diff",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "spmeesseman.vscode-taskexplorer",
+    "wayou.vscode-todo-highlight"
+  ]
+}

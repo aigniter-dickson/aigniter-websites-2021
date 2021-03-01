@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUnusedParameters": false,
+    "removeComments": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "preserveConstEnums": true,
+    "pretty": true,
+    "baseUrl": "./",
+    "rootDirs": [
+      "./",
+    ],
+    "paths": {
+      "@/*": [
+        "./*",
+        "./app/*"
+      ]
+    }
+  },
+  "exclude": [
+    "public",
+    "node_modules",
+    ".blitz"
+  ],
+  "include": [
+    "types/**/*.d.ts",
+    "app",
+    "assets",
+    "content"
+  ]
+}
