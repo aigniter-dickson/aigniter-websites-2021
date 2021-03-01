@@ -179,7 +179,7 @@ const NetworkMap = () => (
             整合了世界各地的物流公司的報價
           </p>
         </SHeadingGp>
-        <div tw="relative w-full aspect-w-4 aspect-h-3 justify-self-center">
+        <div tw="relative w-full aspect-w-3 aspect-h-2 justify-self-center">
           <Image src="/images/map2.svg" layout="fill" objectFit="contain" alt="" aria-hidden />
         </div>
       </SLayout>
@@ -226,7 +226,7 @@ const BriefCard = ({ backgroundSrc, title, content }: any) => (
 )
 
 const BriefUsecases = () => (
-  <Section>
+  <Section tw="bg-blueGray-50">
     <LayoutContainer>
       <SLayout>
         <SHeadingGp tw="justify-items-center">

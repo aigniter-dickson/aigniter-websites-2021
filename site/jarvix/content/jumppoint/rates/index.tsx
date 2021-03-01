@@ -25,7 +25,7 @@ import Intro from '../_common/Intro'
 const ReferenceTimetable = () => (
   <Section>
     <LayoutContainer>
-      <SLayout tw="py-8">
+      <SLayout tw="pt-16">
         <SHeadingGp tw="justify-items-center">
           <SectionTitle2 tw="text-center">Jumppoint速遞服務時間表</SectionTitle2>
         </SHeadingGp>
@@ -84,7 +84,13 @@ const ReferenceTimetable = () => (
               <td>$2</td>
             </tr>
           </tbody>
+          <p tw="text-xs pt-2 text-brand-jmpt text-opacity-50">
+            <i>*收費以體積重量或實際重量計算，以較高者為準。</i>
+            <br />
+            <i>*體積重量 = 長度 x寬度 x 高度 (厘米) / 6000 = 體積重量 (公斤)</i>
+          </p>
         </table>
+
         <div tw="flex justify-center items-center">
           <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
             立即免費申請
