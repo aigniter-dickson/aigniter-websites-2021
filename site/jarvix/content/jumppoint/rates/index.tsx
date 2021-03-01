@@ -17,8 +17,6 @@ import {
 
 import CtaSignup from 'content/jumppoint/_common/CtaSignup'
 
-import { useState } from 'react'
-import { ArrowForward } from '@/assets/icons/eva-icons'
 import Faq from '../_common/Faq'
 import Intro from '../_common/Intro'
 
