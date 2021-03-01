@@ -11,7 +11,6 @@ import {
 } from '@/app/layouts/components/Section'
 import LayoutContainer from '@/app/layouts/components/LayoutContainer'
 import { ArrowForward } from '@/assets/icons/eva-icons'
-
 const FaqItem = ({ title, children }: any) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -62,14 +61,7 @@ export const Faq = () => {
   return (
     <Section>
       <LayoutContainer>
-        <SLayout
-          tw="py-24"
-          css={css({
-            [`@media (min-width: ${theme`screens.md`})`]: {
-              gridTemplateColumns: '1fr auto',
-            },
-          })}
-        >
+        <SLayout tw="py-24">
           <SHeadingGp tw="text-left md:text-left">
             <SectionTitle>常見問題 </SectionTitle>
           </SHeadingGp>

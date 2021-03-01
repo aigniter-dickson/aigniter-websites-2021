@@ -18,14 +18,29 @@ import HeartOutline from 'assets/icons/eva-icons/HeartOutline'
 import { useState } from 'react'
 import { ArrowForward } from '@/assets/icons/eva-icons'
 import Intro from '@/content/jumppoint/_common/Intro'
+import Faq from '../_common/Faq'
+import Phone from '@/app/components/core/mockups/Phone'
 
 const Hero = () => (
-  <Section tw="bg-brand-jmpt text-white">
+  <Section tw="overflow-hidden bg-brand-jmpt text-white">
     <LayoutContainer>
       <SLayout>
-        <div tw="grid grid-flow-row md:grid-flow-col">
-          <VStack tw="gap-6">
-            <SHeadingGp>
+        <div
+          tw="flex flex-col sm:flex-row"
+          css={[
+            tw`-m-8`,
+            {
+              '& > *': tw`p-8`,
+            },
+          ]}
+          // css={css({
+          //   [`@media (min-width: ${theme`screens.sm`})`]: {
+          //     gridTemplateColumns: '1fr auto',
+          //   },
+          // })}
+        >
+          <VStack tw="gap-6 flex-shrink-0 flex-grow w-auto! my-auto sm:mr-36">
+            <SHeadingGp tw="w-auto">
               <p>jumppoint</p>
               <SectionTitle tw="text-current!">
                 <span>可靠 極速</span>
@@ -49,6 +64,14 @@ const Hero = () => (
               </HStack>
             </div> */}
           </VStack>
+          {/* <figure as={Phone} /> */}
+          <Phone tw="flex-shrink-0 h-40 sm:h-auto sm:mr-8">
+            <Image
+              src="/images/jumppoint/landing/jumppoint-screenshot-1@2x.jpg"
+              layout="fill"
+              objectFit="contain"
+            />
+          </Phone>
         </div>
       </SLayout>
     </LayoutContainer>
@@ -92,7 +115,7 @@ const Why = () => (
         <SHeadingGp>
           <SectionTitle tw="text-center">為什麼選擇Jumppoint</SectionTitle>
         </SHeadingGp>
-        <div tw="grid md:grid-cols-3 gap-6 justify-items-center">
+        <div tw="grid md:grid-cols-4 gap-6 justify-items-center">
           {[
             {
               icon: <HeartOutline />,
@@ -324,339 +347,6 @@ const CtaSignup = () => (
     </LayoutContainer>
   </Section>
 )
-const FaqItem = ({ title, children }: any) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  return (
-    <button
-      type="button"
-      aria-label="Open item"
-      title="Open item"
-      tw="block w-full py-4 focus:outline-none text-left"
-      onClick={() => setIsOpen(!isOpen)}
-    >
-      <VStack tw="gap-4">
-        <div tw="flex items-center justify-between h-8 w-full">
-          <SectionTitle4>{title}</SectionTitle4>
-          <div tw="flex items-center justify-center w-8 h-8">
-            {children && (
-              <svg
-                viewBox="0 0 24 24"
-                css={[
-                  tw`w-3 text-gray-600 transition-transform duration-200`,
-                  isOpen && tw`transform rotate-180`,
-                ]}
-              >
-                <polyline
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeMiterlimit="10"
-                  points="2,7 12,17 22,7"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            )}
-          </div>
-        </div>
-        {children && (
-          <div css={isOpen || tw`hidden`}>
-            <p tw="text-gray-700">{children}</p>
-          </div>
-        )}
-      </VStack>
-    </button>
-  )
-}
-
-export const Faq = () => {
-  return (
-    <Section>
-      <LayoutContainer>
-        <SLayout tw="py-24">
-          <SHeadingGp tw="text-left md:text-left">
-            <SectionTitle>常見問題 </SectionTitle>
-          </SHeadingGp>
-          <div tw="divide-y">
-            <FaqItem title="問題 1 ?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              rem aperiam, eaque ipsa quae.
-            </FaqItem>
-            <FaqItem title="問題 2 ?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              rem aperiam, eaque ipsa quae.
-            </FaqItem>
-            <FaqItem title="問題 3 ?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              rem aperiam, eaque ipsa quae.
-            </FaqItem>
-            <FaqItem title="問題 4 ?">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              rem aperiam, eaque ipsa quae.
-            </FaqItem>
-            <FaqItem
-              title={
-                <span tw="justify-self-start flex items-center justify-center h-12 -ml-8 px-8 rounded-full text-brand-jmpt">
-                  <span>更多常見問題</span>
-                  <ArrowForward
-                    tw="pl-1 inline-block h-4"
-                    css={css({
-                      '& path': { fill: 'currentcolor' },
-                    })}
-                  />
-                </span>
-              }
-            />
-          </div>
-        </SLayout>
-      </LayoutContainer>
-    </Section>
-  )
-}
-
-export const AnotherHero = () => (
-  <div tw="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
-    <div tw="pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-5">
-      <div tw="max-w-xl mb-6">
-        <div>
-          <p tw="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-400">
-            Brand new
-          </p>
-        </div>
-        <h2 tw="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-          The quick, brown fox
-          <br tw="hidden md:block" />
-          jumps over <span tw="inline-block text-purple-400">a lazy dog</span>
-        </h2>
-        <p tw="text-base text-gray-700 md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-          laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
-        </p>
-      </div>
-      <div tw="flex items-center">
-        <a
-          href="/"
-          tw="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700"
-        >
-          Get started
-        </a>
-        <a
-          href="/"
-          aria-label=""
-          tw="inline-flex items-center font-semibold transition-colors duration-200 text-purple-400 hover:text-purple-800"
-        >
-          Learn more
-        </a>
-      </div>
-    </div>
-    <div>
-      <img
-        src="https://kitwind.io/assets/kometa/two-thirds-phone.png"
-        tw="object-cover object-top w-full h-64 mx-auto lg:h-auto xl:mr-24 md:max-w-sm"
-        alt=""
-      />
-    </div>
-  </div>
-)
-
-const B = () => (
-  <div tw="max-w-screen-xl p-4 bg-white  mx-auto px-4 sm:px-6 lg:px-8 relative py-28 lg:mt-20">
-    <div tw="relative">
-      <div tw="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
-        <div tw="lg:col-start-2 lg:max-w-2xl ml-auto">
-          <p tw="text-base leading-6 text-indigo-500 font-semibold uppercase">Interactive</p>
-          <h4 tw="mt-2 text-2xl leading-8 font-extrabold text-gray-900  sm:text-3xl sm:leading-9">
-            Interactivity between team members is the key of the success.
-          </h4>
-          <p tw="mt-4 text-lg leading-6 text-gray-500 ">
-            Build a simply and powered collaborative space for all your team. Track, share, measure,
-            you have a fully control, it&#x27;s never be simply and efficient.
-          </p>
-          <ul tw="mt-8 md:grid md:grid-cols-2 gap-6">
-            <li tw="mt-6 lg:mt-0">
-              <div tw="flex">
-                <span tw="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800  ">
-                  <svg tw="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </span>
-                <span tw="ml-4 text-base leading-6 font-medium text-gray-500 ">
-                  Live modifications
-                </span>
-              </div>
-            </li>
-            <li tw="mt-6 lg:mt-0">
-              <div tw="flex">
-                <span tw="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800  ">
-                  <svg tw="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </span>
-                <span tw="ml-4 text-base leading-6 font-medium text-gray-500 ">Data tracker</span>
-              </div>
-            </li>
-            <li tw="mt-6 lg:mt-0">
-              <div tw="flex">
-                <span tw="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800  ">
-                  <svg tw="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </span>
-                <span tw="ml-4 text-base leading-6 font-medium text-gray-500 ">24/24 support</span>
-              </div>
-            </li>
-            <li tw="mt-6 lg:mt-0">
-              <div tw="flex">
-                <span tw="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800  ">
-                  <svg tw="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </span>
-                <span tw="ml-4 text-base leading-6 font-medium text-gray-500 ">
-                  Free tips to improve work time
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div tw="mt-10 lg:-mx-4 relative lg:mt-0 lg:col-start-1">
-          <div tw="relative space-y-4">
-            <div tw="flex items-end justify-center lg:justify-start space-x-4">
-              <img
-                tw="rounded-lg shadow-lg w-32 md:w-56"
-                width="200"
-                src="/images/object/8.jpg"
-                alt="1"
-              />
-              <img
-                tw="rounded-lg shadow-lg w-40 md:w-64"
-                width="260"
-                src="/images/landscape/4.jpg"
-                alt="2"
-              />
-            </div>
-            <div tw="flex items-start justify-center lg:justify-start space-x-4 ml-12">
-              <img
-                tw="rounded-lg shadow-lg w-24 md:w-40"
-                width="170"
-                src="/images/landscape/3.jpg"
-                alt="3"
-              />
-              <img
-                tw="rounded-lg shadow-lg w-32 md:w-56"
-                width="200"
-                src="/images/object/9.jpg"
-                alt="4"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-)
-
-const C = () => (
-  <div data-section>
-    <div data-layout-container>
-      <hgroup>
-        <h4 tw="mt-2 text-2xl leading-8 font-extrabold text-gray-900  sm:text-3xl sm:leading-9">
-          Interactivity between team members is the key of the success.
-        </h4>
-      </hgroup>
-      <div tw="sm:flex flex-wrap justify-center items-center text-center gap-8">
-        <div tw="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4 bg-white mt-6  shadow-lg rounded-lg ">
-          <div tw="flex-shrink-0">
-            <div tw="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                tw="h-6 w-6"
-                viewBox="0 0 1792 1792"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z"></path>
-              </svg>
-            </div>
-          </div>
-          <h3 tw="text-2xl sm:text-xl text-gray-700 font-semibold  py-4">Website Design</h3>
-          <p tw="text-base  text-gray-500  py-4">
-            Encompassing today’s website design technology to integrated and build solutions
-            relevant to your business.
-          </p>
-        </div>
-        <div tw="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4 mt-6 sm:mt-16 md:mt-20 lg:mt-24 bg-white shadow-lg rounded-lg ">
-          <div tw="flex-shrink-0">
-            <div tw="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                tw="h-6 w-6"
-                viewBox="0 0 1792 1792"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z"></path>
-              </svg>
-            </div>
-          </div>
-          <h3 tw="text-2xl sm:text-xl text-gray-700 font-semibold  py-4">Branding</h3>
-          <p tw="text-base text-gray-500  py-4">
-            Share relevant, engaging, and inspirational brand messages to create a connection with
-            your audience.
-          </p>
-        </div>
-        <div tw="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 mt-6  px-4 py-4 bg-white shadow-lg rounded-lg ">
-          <div tw="flex-shrink-0">
-            <div tw="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-              <svg
-                width="20"
-                height="20"
-                fill="currentColor"
-                tw="h-6 w-6"
-                viewBox="0 0 1792 1792"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z"></path>
-              </svg>
-            </div>
-          </div>
-          <h3 tw="text-2xl sm:text-xl text-gray-700 font-semibold  py-4">SEO Marketing</h3>
-          <p tw="text-base  text-gray-500  py-4">
-            Let us help you level up your search engine game, explore our solutions for digital
-            marketing for your business.
-          </p>
-        </div>
-      </div>
-      <div data-row data-center>
-        <a
-          href="/"
-          tw="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700"
-        >
-          Get started
-        </a>
-      </div>
-    </div>
-  </div>
-)
 
 const GotoDetailsCard = () => (
   <a href="#" tw="block w-60 shadow-lg rounded-lg ">
@@ -672,37 +362,6 @@ const GotoDetailsCard = () => (
       </p>
     </div>
   </a>
-)
-
-const D = () => <GotoDetailsCard />
-
-const E = () => (
-  <div tw="bg-white  ">
-    <div tw="lg:flex lg:items-center lg:justify-between w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-      <h2 tw="text-3xl font-extrabold text-black  sm:text-4xl">
-        <span tw="block">Want to be millionaire ?</span>
-        <span tw="block text-indigo-500">It&#x27;s today or never.</span>
-      </h2>
-      <div tw="lg:mt-0 lg:flex-shrink-0">
-        <div tw=" inline-flex rounded-md shadow">
-          <button
-            type="button"
-            tw="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-          >
-            Get started
-          </button>
-        </div>
-        <div tw="ml-3 inline-flex rounded-md shadow">
-          <button
-            type="button"
-            tw="py-4 px-6  bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
-          >
-            Invite friend
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 )
 
 const Home: import('blitz').BlitzPage = () => {
