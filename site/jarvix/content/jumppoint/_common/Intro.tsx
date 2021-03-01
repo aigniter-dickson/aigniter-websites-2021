@@ -14,6 +14,21 @@ import {
   SectionTitle4,
 } from 'app/layouts/components/Section'
 
+const WithTick = ({ children }: any) => (
+  <span tw="flex">
+    <span tw="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-800  ">
+      <svg tw="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path
+          fillRule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clipRule="evenodd"
+        ></path>
+      </svg>
+    </span>
+    <span tw="ml-2">{children}</span>
+  </span>
+)
+
 const Intro = () => (
   <Section>
     <LayoutContainer>
@@ -44,17 +59,15 @@ const Intro = () => (
 
             <VStack tw="gap-2 place-items-center md:place-items-start">
               <SectionTitle2>
-                <span>什麼業務適合使用Jumppoint？</span>
+                <span>Jumppoint 如何幫助不同類型的商户？</span>
               </SectionTitle2>
-              <p
-                css={{
-                  // [`@media (min-width: ${theme`screens.md`})`]: {
-                  maxWidth: '30ch',
-                  // },
-                }}
-              >
-                為了使市⺠大眾能享用簡易便利、價格優惠的本地及國際物流服務，我們整合了世界各地物流公司的報價，為用戶提供更優惠和快捷的寄件服務。
-              </p>
+              {[
+                'B2C電商物流 (潮流服飾、化妝護膚品、電子產品、日用品等)',
+                'B2C即日物流 (生鮮電商、酒類飲品、醫療、急件等)',
+                'B2B分銷商 (需要配送貨品到大量中小型零售商或餐飲客戶)',
+              ].map((children) => (
+                <WithTick {...{ children }} />
+              ))}
             </VStack>
           </VStack>
         </VStack>
