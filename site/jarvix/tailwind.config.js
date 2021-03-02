@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      spacing: {
+        '0.5px': '0.5px',
+      },
       borderRadius: {
         DEFAULT: defaultTheme.borderRadius.lg,
       },
@@ -27,7 +30,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      borderRadius: ['first', 'last'],
+    },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],
 }
