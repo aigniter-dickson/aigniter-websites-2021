@@ -162,7 +162,7 @@ const Why = () => (
                 '透過 jumppoint 的手機應用程式，用戶能隨時追蹤貨件的運送進度、運費支付紀錄，以及匯出 jumppoint 送遞及結餘紀錄，使用戶可以更容易管理寄件服務。',
             },
           ].map(({ icon, title, children }) => (
-            <WhyCard {...{ icon, title, children }} />
+            <WhyCard key={title} {...{ icon, title, children }} />
           ))}
         </div>
         <div />

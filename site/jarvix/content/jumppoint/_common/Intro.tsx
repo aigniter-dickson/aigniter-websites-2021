@@ -66,7 +66,7 @@ const Intro = () => (
                 'B2C即日物流 (生鮮電商、酒類飲品、醫療、急件等)',
                 'B2B分銷商 (需要配送貨品到大量中小型零售商或餐飲客戶)',
               ].map((children) => (
-                <WithTick {...{ children }} />
+                <WithTick key={children + ''} {...{ children }} />
               ))}
             </VStack>
           </VStack>

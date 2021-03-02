@@ -34,5 +34,5 @@ module.exports = {
       borderRadius: ['first', 'last'],
     },
   },
-  plugins: [require('@tailwindcss/aspect-ratio')],
+  plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/forms')],
 }
