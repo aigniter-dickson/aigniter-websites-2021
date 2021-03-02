@@ -82,11 +82,11 @@ const ReferenceTimetable = () => (
               <td>$2</td>
             </tr>
           </tbody>
-          <p tw="text-xs pt-2 text-brand-jmpt text-opacity-50">
+          <div tw="text-xs pt-2 text-brand-jmpt text-opacity-50">
             <i>*收費以體積重量或實際重量計算，以較高者為準。</i>
             <br />
             <i>*體積重量 = 長度 x寬度 x 高度 (厘米) / 6000 = 體積重量 (公斤)</i>
-          </p>
+          </div>
         </table>
 
         <div tw="flex justify-center items-center">

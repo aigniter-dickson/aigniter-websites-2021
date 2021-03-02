@@ -2,7 +2,7 @@ import { HStack, VStack } from 'app/components/core/Stack'
 import LayoutContainer from 'app/layouts/components/LayoutContainer'
 import Layout from 'app/layouts/Layout'
 import tw, { css, theme } from 'twin.macro'
-import { Image } from 'blitz'
+import { Image, Link, useRouter } from 'blitz'
 
 import {
   Section,
@@ -21,8 +21,20 @@ import Intro from '@/content/jumppoint/_common/Intro'
 import Faq from '../_common/Faq'
 import Phone from '@/app/components/core/mockups/Phone'
 
+import useCaseServicesData from 'content/jumppoint/usecase-serivces/data'
+
 const Hero = () => (
-  <Section tw="overflow-hidden bg-brand-jmpt text-white">
+  <Section
+    tw="overflow-hidden bg-brand-jmpt text-white h-full"
+    css={{
+      minHeight: '40rem',
+      maxHeight: '70rem',
+      [`@media (min-width: ${theme`screens.md`})`]: {
+        minHeight: '50rem',
+        maxHeight: '80rem',
+      },
+    }}
+  >
     <LayoutContainer>
       <SLayout>
         <div
@@ -41,16 +53,24 @@ const Hero = () => (
         >
           <VStack tw="gap-6 flex-shrink-0 flex-grow w-auto! my-auto sm:mr-36">
             <SHeadingGp tw="w-auto">
-              <p>jumppoint</p>
+              <img
+                src="/images/jumppoint/jumppoint_logo_white.webp"
+                height="44px"
+                width="219px"
+                alt="jumppoint"
+                tw="h-8 w-auto"
+              />
               <SectionTitle tw="text-current!">
-                <span>可靠 極速</span>
+                <span>可靠</span>
                 <br />
-                <span>全城最抵嘅物流格價App</span>
+                <span>極速</span>
+                <br />
+                <span>全城最抵嘅物流配送App</span>
               </SectionTitle>
             </SHeadingGp>
             <div>
               <a tw="inline-flex items-center justify-center h-12 px-8 rounded-full text-white border border-white">
-                立即免費申請
+                <span>立即免費申請</span>
               </a>
             </div>
             {/* <div>
@@ -187,45 +207,48 @@ const NetworkMap = () => (
   </Section>
 )
 
-const BriefCard = ({ backgroundSrc, title, content }: any) => (
-  <a
-    tw="block w-full bg-white mt-6 shadow-lg rounded overflow-hidden"
-    css={css({
-      maxWidth: theme`width.64`,
-      [`@media (min-width: ${theme`screens.md`})`]: {
-        maxWidth: theme`width.60`,
-      },
-    })}
-  >
-    <div tw="aspect-w-3 aspect-h-2">
-      <Image src={backgroundSrc} layout="fill" objectFit="cover" alt="" aria-hidden />
-    </div>
-    <VStack tw="gap-4 px-6 py-8">
-      <VStack tw="gap-4">
-        <SectionTitle4 tw="text-center text-brand-jmpt">
-          <span>{title}</span>
-        </SectionTitle4>
-        <p
-          tw="text-base  text-gray-500"
-          css={{
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            display: '-webkit-box',
-            WebkitLineClamp: 3,
-            WebkitBoxOrient: 'vertical',
-            [`@media (min-width: ${theme`screens.md`})`]: {
-              WebkitLineClamp: 5,
-            },
-          }}
-        >
-          <span>{content}</span>
-        </p>
+const BriefCard = ({ backgroundSrc, title, content, href }: any) => (
+  <Link href={href || '#'}>
+    <a
+      href={href || '#'}
+      tw="block w-full bg-white mt-6 shadow-lg rounded overflow-hidden"
+      css={css({
+        maxWidth: theme`width.64`,
+        [`@media (min-width: ${theme`screens.md`})`]: {
+          maxWidth: theme`width.60`,
+        },
+      })}
+    >
+      <div tw="aspect-w-3 aspect-h-2">
+        <Image src={backgroundSrc} layout="fill" objectFit="cover" alt="" aria-hidden />
+      </div>
+      <VStack tw="gap-4 px-6 py-8">
+        <VStack tw="gap-4">
+          <SectionTitle4 tw="text-center text-brand-jmpt">
+            <span>{title}</span>
+          </SectionTitle4>
+          <p
+            tw="text-base  text-gray-500"
+            css={{
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              display: '-webkit-box',
+              WebkitLineClamp: 3,
+              WebkitBoxOrient: 'vertical',
+              [`@media (min-width: ${theme`screens.md`})`]: {
+                WebkitLineClamp: 5,
+              },
+            }}
+          >
+            <span>{content}</span>
+          </p>
+        </VStack>
       </VStack>
-    </VStack>
-  </a>
+    </a>
+  </Link>
 )
 
-const BriefUsecases = () => (
+const BriefUsecases = ({ pathname }: any) => (
   <Section tw="bg-blueGray-50">
     <LayoutContainer>
       <SLayout>
@@ -234,26 +257,18 @@ const BriefUsecases = () => (
           <SectionTitle>Jumppoint 幫到你</SectionTitle>
         </SHeadingGp>
         <div tw="grid mx-auto sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <BriefCard
-            backgroundSrc="/images/jumppoint/landing/brief-services-1.png"
-            title="凍肉、蔬果等食品"
-            content="若您正考慮以零售的方式岀售您的凍貨產品，我們提供-18度、0-4度和室溫的選項，以即日或預約 送貨的形式門對門將食物送到客人府上，打破線上購買凍肉需要大量批發的限制，更打破預約送 貨、數日後客人才能收到食物的束縛。"
-          />
-          <BriefCard
-            backgroundSrc="/images/jumppoint/landing/brief-services-2.png"
-            title="化妝品、日用品"
-            content="不少人都擁有一間屬於自己嘅Online shop，除了幫網店設計美觀、尋找特色貨品外，為客人提供 高質量而且價錢便宜嘅送貨服務，能幫網店建立信譽同優勢。"
-          />
-          <BriefCard
-            backgroundSrc="/images/jumppoint/landing/brief-services-3.png"
-            title="零售服務"
-            content="運輸及物流業接通無數零售商和製造商的供應鏈，服務對象遍及各個國家、各行各業。jumppoint 使用科技打造物流系統，促進運作流程之間的互動合作，加強供應鏈的透明度、安全性和可持續 性，並能高效而安全地傳遞產品、服務及相關訊息，便利商業運作。"
-          />
-          <BriefCard
-            backgroundSrc="/images/jumppoint/landing/brief-services-4.png"
-            title="跨境電商貨運配送"
-            content="jumppoint 致力提供優質跨境商家對顧客(B2C)電子商貿物流服務，包括進出口香港、空運服務以 及電商倉儲配送物流方案。以優惠的價錢提供更便捷的跨境電商物流"
-          />
+          {Object.entries(useCaseServicesData.pages['use-cases']?.sections)?.map(
+            ([key, { title, contents }]) => (
+              // <span>{JSON.stringify({ key, ...rest })}</span>
+              <BriefCard
+                key={key}
+                backgroundSrc={contents[0].imageSrc + ''}
+                title={title}
+                content={contents.map(({ content }) => content).join(' ')}
+                href={[pathname, 'use-cases', key].join('/')}
+              />
+            ),
+          )}
         </div>
         <div />
         <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
@@ -365,6 +380,8 @@ const GotoDetailsCard = () => (
 )
 
 const Home: import('blitz').BlitzPage = () => {
+  const { pathname } = useRouter()
+
   return (
     <>
       <Hero />
@@ -373,7 +390,7 @@ const Home: import('blitz').BlitzPage = () => {
       <Why />
       <CtaJoin />
       <NetworkMap />
-      <BriefUsecases />
+      <BriefUsecases pathname={pathname} />
       <BriefServices />
       <Showcase />
       <CtaSignup />

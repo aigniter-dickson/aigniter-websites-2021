@@ -21,13 +21,13 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       {getLayout(
         <>
-          {/* {process.env.NODE_ENV === 'development' && (
+          {process.env.NODE_ENV === 'development' && (
             <style jsx global>{`
-              body:hover *:not(svg) {
+              body:not(:hover) *:not(svg) {
                 box-shadow: inset rgb(0, 255, 255) 0 0 0 0.5px, rgb(0, 255, 255) 0 0 0 0.5px;
               }
             `}</style>
-          )} */}
+          )}
           <GlobalStyles />
           <Global
             styles={css({

@@ -10,8 +10,6 @@ import {
   SHeadingGp,
   SectionTitle,
   SectionTitle2,
-  SectionTitle3,
-  SectionTitle4,
 } from 'app/layouts/components/Section'
 
 const WithTick = ({ children }: any) => (
@@ -46,14 +44,16 @@ const Intro = () => (
                 <SectionTitle>智能物流網絡</SectionTitle>
               </SHeadingGp>
               <p
-                css={{
-                  // [`@media (min-width: ${theme`screens.md`})`]: {
-                  maxWidth: '30ch',
-                  // },
-                }}
+              // css={{
+              //   // [`@media (min-width: ${theme`screens.md`})`]: {
+              //   maxWidth: '30ch',
+              //   // },
+              // }}
               >
-                jumppoint是一間紮根於香港的物流科技公司，以先進科技作為主導
-                ，致力為香港及亞洲各地超過 3000個商戶提供最高效可靠嘅門對門物流服務。
+                jumppoint是一間紮根香港面向全球的物流科技公司，以先進路線規劃算法及實時物流數據為香港及全球各地超過1,000個B2C及B2B商戶提供高效、低成本、可靠、多溫度段的門對門物流服務。
+              </p>
+              <p>
+                為了使市民大眾能享用簡易便利、價格優惠的本地及國際物流服務，我們整合了世界各地物流公司的報價，為用戶提供更優惠和快捷的寄件服務。
               </p>
             </VStack>
 
