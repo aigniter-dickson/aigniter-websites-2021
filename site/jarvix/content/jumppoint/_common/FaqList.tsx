@@ -59,8 +59,8 @@ export const FaqItem = ({ title, children }: FaqItemProps) => {
           </div>
         </div>
         {children && (
-          <div css={isOpen || tw`hidden`}>
-            <p tw="text-gray-700">{children}</p>
+          <div tw="text-gray-700 prose" css={isOpen || tw`hidden`}>
+            {children}
           </div>
         )}
       </VStack>
@@ -69,7 +69,7 @@ export const FaqItem = ({ title, children }: FaqItemProps) => {
 }
 
 export type FaqListrops = {
-  items?: FaqItemProps
+  items?: Array<FaqItemProps>
 }
 
 // export async function getStaticProps() {
@@ -85,41 +85,9 @@ export type FaqListrops = {
 export const FaqList = ({ items }: FaqListrops = {}) => {
   return (
     <div tw="divide-y">
-      {
-        unified()
-          .use(remarkParse)
-          .use(remarkReact as any)
-          .processSync('- markdown').result
-      }
-      <FaqItem title="問題 1 ?">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem
-        aperiam, eaque ipsa quae.
-      </FaqItem>
-      <FaqItem title="問題 2 ?">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem
-        aperiam, eaque ipsa quae.
-      </FaqItem>
-      <FaqItem title="問題 3 ?">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem
-        aperiam, eaque ipsa quae.
-      </FaqItem>
-      <FaqItem title="問題 4 ?">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem
-        aperiam, eaque ipsa quae.
-      </FaqItem>
-      <FaqItem
-        title={
-          <span tw="justify-self-start flex items-center justify-center h-12 -ml-8 px-8 rounded-full text-brand-jmpt">
-            <span>更多常見問題</span>
-            <ArrowForward
-              tw="pl-1 inline-block h-4"
-              css={css({
-                '& path': { fill: 'currentcolor' },
-              })}
-            />
-          </span>
-        }
-      />
+      {items?.map(({ title, children }) => (
+        <FaqItem {...{ title, children }} />
+      ))}
     </div>
   )
 }

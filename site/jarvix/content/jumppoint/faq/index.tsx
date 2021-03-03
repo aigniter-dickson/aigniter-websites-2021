@@ -14,24 +14,38 @@ import {
   SectionTitle4,
 } from 'app/layouts/components/Section'
 
-import HeartOutline from 'assets/icons/eva-icons/HeartOutline'
-import { useState } from 'react'
-import { ArrowForward } from '@/assets/icons/eva-icons'
-import Intro from '@/content/jumppoint/_common/Intro'
-import FaqList from '../_common/CtaFaq'
-import Phone from '@/app/components/core/mockups/Phone'
+import { FaqList } from '../_common/FaqList'
 
-import useCaseServicesData from 'content/jumppoint/usecase-serivces/data'
-import CtaSignup from '../_common/CtaSignup'
-import SvgAppStore from '@/assets/AppStore'
-import SvgGooglePlay from '@/assets/GooglePlay'
+import faqData from '../faq/data'
+import { mdJsx } from '@/app/utils/mdJsx'
 
 const Faq: import('blitz').BlitzPage = () => {
-  const { pathname } = useRouter()
-
   return (
     <>
-      <FaqList />
+      <Section tw="overflow-hidden bg-brand-jmpt text-white">
+        <LayoutContainer>
+          <SLayout tw="py-24">
+            <SHeadingGp tw="text-left md:text-left">
+              <SectionTitle tw="text-current!">jumppoint 常見問題</SectionTitle>
+            </SHeadingGp>
+          </SLayout>
+        </LayoutContainer>
+      </Section>
+      <Section>
+        <LayoutContainer>
+          <SLayout tw="py-24">
+            {/* <SHeadingGp tw="text-left md:text-left">
+              <SectionTitle>jumppoint常見問題</SectionTitle>
+            </SHeadingGp> */}
+            <FaqList
+              items={faqData.items.map(({ title, content }) => ({
+                title,
+                children: mdJsx(content),
+              }))}
+            />
+          </SLayout>
+        </LayoutContainer>
+      </Section>
     </>
   )
 }

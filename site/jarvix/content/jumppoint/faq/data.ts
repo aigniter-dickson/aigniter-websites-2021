@@ -8,3 +8,5 @@ export const data: {
     content: string
   }>
 } = jsonData
+
+export default data
