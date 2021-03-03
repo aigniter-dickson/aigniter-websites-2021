@@ -27,6 +27,9 @@ module.exports = {
       maxWidth: {
         layout: defaultTheme.screens.lg,
       },
+      padding: {
+        layout: defaultTheme.spacing[8] || defaultTheme.spacing['8'],
+      },
     },
   },
   variants: {

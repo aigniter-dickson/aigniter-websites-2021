@@ -1,3 +1,4 @@
+import { Link } from 'blitz'
 import tw, { css, theme } from 'twin.macro'
 
 import LayoutContainer from 'app/layouts/components/LayoutContainer'
@@ -29,9 +30,14 @@ export const CtaSignup = () => (
           </SectionTitle3>
         </SHeadingGp>
         <div tw="flex justify-center items-center">
-          <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
-            立即免費申請
-          </a>
+          <Link href="/jumppoint/signup">
+            <a
+              href="/jumppoint/signup"
+              tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt"
+            >
+              立即免費申請
+            </a>
+          </Link>
         </div>
       </SLayout>
     </LayoutContainer>

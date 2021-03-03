@@ -6,7 +6,6 @@ export { default as CtaSignup2 } from './CtaSignup2'
 export { default as Hero } from './Hero'
 export { default as Intro } from './Intro'
 export { default as NetworkMap } from './NetworkMap'
-export { default as FAQ } from './FAQ'
 export { default as Showcase } from './Showcase'
 export { default as Why } from './Why'
 

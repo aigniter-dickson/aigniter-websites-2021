@@ -1,7 +1,7 @@
 import tw from 'twin.macro'
 
-export const HStack = tw.div`grid w-full grid-cols-1 grid-flow-col`
-export const VStack = tw.div`grid w-full grid-cols-1 grid-flow-row`
+export const VStack = tw.div`grid w-full grid-cols-1 grid-flow-row place-content-start gap-4`
+export const HStack = tw.div`grid w-full grid-rows-1 grid-flow-col place-content-start gap-4`
 
 // export type StackProps = Partial<
 //   import('react').PropsWithChildren<{

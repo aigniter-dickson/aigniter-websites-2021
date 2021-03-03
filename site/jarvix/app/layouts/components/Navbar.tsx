@@ -1,18 +1,18 @@
-import { Image } from 'blitz'
+import { Image, Link } from 'blitz'
 import tw from 'twin.macro'
 
 import Container from './LayoutContainer'
 
 const Icon = (props: any) => <svg {...props}>{props.children}</svg>
 
-const Link = tw.a`flex-none flex items-center justify-center h-12 px-2`
+// const Link = tw.a`flex-none flex items-center justify-center h-12 px-2`
 
 export const Nav = () => (
   <nav tw="w-full flex items-center h-16">
     <Link href="/jumppoint">
       <a
         href="/jumppoint"
-        tw="h-6"
+        tw="h-6 flex-none flex items-center justify-center px-2"
         css={{
           filter: 'invert(1)',
         }}
@@ -52,7 +52,7 @@ export const Navbar = (props: any) => {
   return (
     <header tw="relative w-screen" {...rest}>
       <div tw="" />
-      <Container>
+      <Container tw="px-layout">
         <Nav />
       </Container>
     </header>

@@ -18,10 +18,13 @@ import HeartOutline from 'assets/icons/eva-icons/HeartOutline'
 import { useState } from 'react'
 import { ArrowForward } from '@/assets/icons/eva-icons'
 import Intro from '@/content/jumppoint/_common/Intro'
-import Faq from '../_common/Faq'
+import FaqList from '../_common/CtaFaq'
 import Phone from '@/app/components/core/mockups/Phone'
 
 import useCaseServicesData from 'content/jumppoint/usecase-serivces/data'
+import CtaSignup from '../_common/CtaSignup'
+import SvgAppStore from '@/assets/AppStore'
+import SvgGooglePlay from '@/assets/GooglePlay'
 
 const Hero = () => (
   <Section
@@ -69,20 +72,35 @@ const Hero = () => (
               </SectionTitle>
             </SHeadingGp>
             <div>
-              <a tw="inline-flex items-center justify-center h-12 px-8 rounded-full text-white border border-white">
-                <span>立即免費申請</span>
-              </a>
-            </div>
-            {/* <div>
-              <HStack tw="gap-4 justify-start">
-                <a tw="relative block h-12 w-40">
-                  <Image src="/images/google-play-badge.png" layout="fill" objectFit="contain" />
+              <Link href="/jumppoint/signup">
+                <a
+                  href="/jumppoint/signup"
+                  tw="inline-flex items-center justify-center h-12 px-8 rounded-full text-white border border-white"
+                >
+                  <span>立即免費申請</span>
                 </a>
-                <a tw="relative block h-12 w-40">
-                  <Image src="/images/google-play-badge.png" layout="fill" objectFit="contain" />
+              </Link>
+            </div>
+            <div>
+              <HStack tw="gap-4 place-content-start">
+                <a
+                  tw="relative block h-14"
+                  href="https://apps.apple.com/hk/app/jumppoint-app/id1525669831"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <SvgAppStore tw="h-full object-contain" />
+                </a>
+                <a
+                  tw="relative block h-14"
+                  href="https://play.google.com/store/apps/details?id=com.jumppoint.app"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <SvgGooglePlay tw="h-full object-contain" />
                 </a>
               </HStack>
-            </div> */}
+            </div>
           </VStack>
           {/* <figure as={Phone} /> */}
           <Phone tw="flex-shrink-0 h-40 sm:h-auto sm:mr-8">
@@ -166,9 +184,14 @@ const Why = () => (
           ))}
         </div>
         <div />
-        <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
-          立即免費申請
-        </a>
+        <Link href="/jumppoint/signup">
+          <a
+            href="/jumppoint/signup"
+            tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt"
+          >
+            立即免費申請
+          </a>
+        </Link>
       </SLayout>
     </LayoutContainer>
   </Section>
@@ -271,9 +294,14 @@ const BriefUsecases = ({ pathname }: any) => (
           )}
         </div>
         <div />
-        <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
-          立即免費申請
-        </a>
+        <Link href="/jumppoint/signup">
+          <a
+            href="/jumppoint/signup"
+            tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt"
+          >
+            立即免費申請
+          </a>
+        </Link>
       </SLayout>
     </LayoutContainer>
   </Section>
@@ -309,9 +337,14 @@ const BriefServices = () => (
           />
         </div>
         <div />
-        <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
-          立即免費申請
-        </a>
+        <Link href="/jumppoint/signup">
+          <a
+            href="/jumppoint/signup"
+            tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt"
+          >
+            立即免費申請
+          </a>
+        </Link>
       </SLayout>
     </LayoutContainer>
   </Section>
@@ -336,49 +369,6 @@ const Showcase = () => (
   </>
 )
 
-const CtaSignup = () => (
-  <Section tw="bg-brand-jmpt bg-opacity-10">
-    <LayoutContainer>
-      <SLayout
-        tw="py-24"
-        css={css({
-          [`@media (min-width: ${theme`screens.md`})`]: {
-            gridTemplateColumns: '1fr auto',
-          },
-        })}
-      >
-        <SHeadingGp tw="text-center md:text-left">
-          <SectionTitle>立即註冊Jumppoint</SectionTitle>
-          <SectionTitle3 tw="text-onSurface text-opacity-75">
-            <span>免申請費、免年費、免按金、3分鐘開戶，即時預約寄件</span>
-          </SectionTitle3>
-        </SHeadingGp>
-        <div tw="flex justify-center items-center">
-          <a tw="justify-self-center flex items-center justify-center h-12 px-8 rounded-full text-white bg-brand-jmpt">
-            立即免費申請
-          </a>
-        </div>
-      </SLayout>
-    </LayoutContainer>
-  </Section>
-)
-
-const GotoDetailsCard = () => (
-  <a href="#" tw="block w-60 shadow-lg rounded-lg ">
-    <div tw="aspect-w-3 aspect-h-2">
-      <Image src="/assets/images/bg_1.png" layout="fill" objectFit="cover" alt="" aria-hidden />
-    </div>
-    <div tw="bg-white  w-full p-4">
-      <p tw="text-indigo-500 text-base font-medium"></p>
-      <p tw="text-gray-800  text-xl font-medium mb-2">New Mac is here !</p>
-      <p tw="text-gray-400  font-light text-base">
-        The new supermac is here, 543 cv and 140 000$. This is best racing computer about 7 years
-        on...
-      </p>
-    </div>
-  </a>
-)
-
 const Home: import('blitz').BlitzPage = () => {
   const { pathname } = useRouter()
 
@@ -394,7 +384,7 @@ const Home: import('blitz').BlitzPage = () => {
       <BriefServices />
       <Showcase />
       <CtaSignup />
-      <Faq />
+      <FaqList />
       {/* <B />
       <C />
       <GotoDetailsCard />
