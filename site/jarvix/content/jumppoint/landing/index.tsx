@@ -153,7 +153,7 @@ const Why = () => (
         <SHeadingGp>
           <SectionTitle tw="text-center">為什麼選擇Jumppoint</SectionTitle>
         </SHeadingGp>
-        <div tw="grid md:grid-cols-4 gap-6 justify-items-center">
+        <div tw="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
           {[
             {
               icon: <HeartOutline />,

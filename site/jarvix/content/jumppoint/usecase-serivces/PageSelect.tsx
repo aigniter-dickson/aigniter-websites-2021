@@ -22,7 +22,9 @@ export const PageSelect: import('react').JSXElementConstructor<Props> = (props) 
             id={key}
             css={{
               ...tw`flex items-center justify-center h-10 px-8 text-sm -mx-0.5px border`,
-              ...tw`first:rounded-l-full last:rounded-r-full`,
+              // ...tw`first:rounded-l-full last:rounded-r-full`,
+              '&:first-of-type': tw`rounded-l-full`,
+              '&:last-of-type': tw`rounded-r-full`,
               ...tw`sm:(px-16)`,
               ...tw`border-brand-jmpt text-brand-jmpt`,
               ...(active && tw`bg-brand-jmpt text-white`),

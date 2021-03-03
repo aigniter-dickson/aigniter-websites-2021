@@ -34,7 +34,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderRadius: ['first', 'last'],
+      // borderRadius: ['first', 'last'],
     },
   },
   plugins: [

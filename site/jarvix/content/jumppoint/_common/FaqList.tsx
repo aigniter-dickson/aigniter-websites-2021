@@ -86,7 +86,7 @@ export const FaqList = ({ items }: FaqListrops = {}) => {
   return (
     <div tw="divide-y">
       {items?.map(({ title, children }) => (
-        <FaqItem {...{ title, children }} />
+        <FaqItem key={`${title}${children}`} {...{ title, children }} />
       ))}
     </div>
   )
