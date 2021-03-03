@@ -111,7 +111,7 @@ const Layout = ({ title, children }: LayoutProps) => {
                   <a
                     href="https://api.whatsapp.com/send?phone=85260588546"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     +852 6058 8546 (WhatsApp)
                   </a>
@@ -120,7 +120,7 @@ const Layout = ({ title, children }: LayoutProps) => {
                   <a
                     href="https://api.whatsapp.com/send?phone=85294069267"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     +852 9406 9267 (WhatsApp)
                   </a>

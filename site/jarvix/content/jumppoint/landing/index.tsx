@@ -87,7 +87,7 @@ const Hero = () => (
                   tw="relative block h-14"
                   href="https://apps.apple.com/hk/app/jumppoint-app/id1525669831"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   <SvgAppStore tw="h-full object-contain" />
                 </a>
@@ -95,7 +95,7 @@ const Hero = () => (
                   tw="relative block h-14"
                   href="https://play.google.com/store/apps/details?id=com.jumppoint.app"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                 >
                   <SvgGooglePlay tw="h-full object-contain" />
                 </a>
